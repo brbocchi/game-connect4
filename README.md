@@ -1,11 +1,11 @@
 # Connect4
 
-Connect4 is a two-payer game in which we need to connect 4 pieces of the same color (horizontally, vertically or diagonally) in order to win game.
+Connect4 is a two-player game in which we need to connect 4 pieces of the same color (horizontally, vertically or diagonally) in order to win game.
 
 ## Installation instructions
 
 All files must be in the same folder.
-Some design won't load without a internet connection (fontawesome design)
+Some design won't load without a internet connection (fontawesome design).
 
 ## How to play
 
