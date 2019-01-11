@@ -9,7 +9,7 @@ Some design won't load without a internet connection (fontawesome design).
 
 ## How to play
 
-Each player alternatively selects in which column want to add a piece, using button-clicks in the respective column.
+Each player alternately selects in which column want to add a piece, using button-clicks in the respective column.
 When there are 4 connected pieces of the same color, this player wins the game. When nobody achieves it, there is a tie.
 The keyboard can also be used to the play the game, in which each number corresponds to a column.
 
