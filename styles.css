@@ -1,0 +1,61 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body{
+  margin: 0;
+}
+
+
+
+#start-game-button {
+  border: 0;
+  box-shadow: 0;
+  background: linear-gradient(to bottom, grey, darkgrey);
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 28px;
+  border-radius: 5px;
+}
+
+
+
+
+ul{
+  list-style: none;
+}
+
+
+
+.control {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.btn {
+  box-shadow: 0;
+  background: linear-gradient(to bottom, grey, darkgrey);
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  border: 1px solid grey;
+  margin: 0 0 0 0;
+}
+
+.btn-one {
+  width: 81px;
+  border-left: 2px solid grey;
+}
+
+.btn-seven {
+  width: 81px;
+  border-right: 2px solid grey;
+}
+
+.btn:hover {
+  color: yellow;
+}
+
+
