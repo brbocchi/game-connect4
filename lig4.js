@@ -48,7 +48,7 @@ Lig4.prototype.addPiece = function (key) {
     if (this.game[j][key - 1] == 0) {
       this.game[j][key - 1] = this.player;
       this.rounds++;
-      // console.log(this.game);
+      console.log(this.game);
       this.lastj = j;
       return;
     }
@@ -137,7 +137,7 @@ Lig4.prototype.checkWinner = function (key) {
 var endGame;
 var drawAnimation;
 var blockKeyboard;
-var selectedButton;
+
 $('#start-game-button').on('click', function () {
   var buttons = '<li><button class="btn btn-one"><i class="fas fa-caret-down fa-6x"></i></button></li>\
   <li><button class="btn btn-two"><i class="fas fa-caret-down fa-6x"></i></button></li>\
@@ -147,42 +147,43 @@ $('#start-game-button').on('click', function () {
   <li><button class="btn btn-six"><i class="fas fa-caret-down fa-6x"></i></button></li>\
   <li><button class="btn btn-seven"><i class="fas fa-caret-down fa-6x"></i></button></li>'
   $('.control').html(buttons);
-  
+  var selectedButton;
   
   $('.btn-one').on('click', function () {
     selectedButton = 1;
-    beginGame();
+    beginGame(selectedButton);
   });
+
   $('.btn-two').click(function () {
     selectedButton = 2;
-    beginGame();
+    beginGame(selectedButton);
   });
   
   $('.btn-three').click(function () {
     selectedButton = 3;
-    beginGame();
+    beginGame(selectedButton);
   });
   
   $('.btn-four').click(function () {
     selectedButton = 4;
-    beginGame();
+    beginGame(selectedButton);
   });
   
   $('.btn-five').click(function () {
     selectedButton = 5;
-    beginGame();
+    beginGame(selectedButton);
   });
   
   $('.btn-six').click(function () {
     selectedButton = 6;
-    beginGame();
+    beginGame(selectedButton);
   });
   
   $('.btn-seven').click(function () {
     selectedButton = 7;
-    beginGame();
+    beginGame(selectedButton);
   });
-  
+
   lig4 = new Lig4();
   lig4Canvas = new Lig4Canvas();
   lig4Canvas.clearCanvas();
@@ -193,12 +194,14 @@ $('#start-game-button').on('click', function () {
 });
 
 
-function beginGame() {
+function beginGame(selectedButton) {
   if (endGame == false && blockKeyboard == false) {
+    drawAnimation = true;
+    blockKeyboard = true;
     if (lig4.checkIfEmpty(selectedButton)) {
       lig4.addFallingPiece(selectedButton);
 
-      drawAnimation = true;
+      
       var updateCanvas = setInterval(function () {
         if (endGame == false && drawAnimation == true) {
           lig4Canvas.clearCanvas();
@@ -211,8 +214,9 @@ function beginGame() {
         }
       }, 15);
       
-      blockKeyboard = true;
+      
       var timeoutId = setTimeout(function () {
+        
         lig4.addPiece(selectedButton);
         if (lig4.checkWinner(selectedButton)) {
           lig4Canvas.winner(lig4.player);
@@ -226,14 +230,13 @@ function beginGame() {
           lig4Canvas.writeTurn(lig4.player);
         }
         blockKeyboard = false;
-        blockButtons = false;
-      }, 700);
+        
+      
+      }, 800);
     }
 
   }
 }
-
-
 
 
 document.onkeydown = function (e) {
@@ -256,6 +259,7 @@ document.onkeydown = function (e) {
         }, 15);
 
         blockKeyboard = true;
+        
         var timeoutId = setTimeout(function () {
           lig4.addPiece(e.key);
           if (lig4.checkWinner(e.key)) {
@@ -270,7 +274,7 @@ document.onkeydown = function (e) {
             lig4Canvas.writeTurn(lig4.player);
           }
           blockKeyboard = false;
-        }, 700);
+        }, 800);
       }
     }
   }
