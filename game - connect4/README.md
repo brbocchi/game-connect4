@@ -20,8 +20,9 @@ Second, a static user interface was devised using Canvas.
 After, animated falling pieces were added using Javascript animation.
 At last, click-buttons were added using CSS and Jquery.
 
-## Unsolved problems
+## Unsolved problems/Future development
 
-- The game doesn't have a responsive-design. It only suits notebooks and PC's.
 - It doesn't point out which pieces were the winner ones, when the game ends.
+- Create a computer player.
+- Better design
 
