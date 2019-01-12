@@ -12,7 +12,7 @@ Lig4Canvas.prototype.drawLines = function () {
   // vertical
   for (var i = 0; i < 8; i++) {
     
-    var a = 8 + 80 * i;
+    var a = 1 + 80 * i;
     this.ctx.beginPath();
     this.ctx.moveTo(a, 0);
     this.ctx.lineTo(a, 480);
@@ -23,8 +23,8 @@ Lig4Canvas.prototype.drawLines = function () {
   for (var i = 0; i < 7; i++) {
     var a = 0 + 80 * i;
     this.ctx.beginPath();
-    this.ctx.moveTo(8, a);
-    this.ctx.lineTo(568, a);
+    this.ctx.moveTo(1, a);
+    this.ctx.lineTo(561, a);
     this.ctx.stroke();
   }
 };
@@ -33,7 +33,7 @@ Lig4Canvas.prototype.drawFallingPiece = function () {
   if (this.y < 80 * lig4.finalPosition) {
     this.y += 10;
     this.ctx.beginPath();
-    this.ctx.arc(48 + 80 * lig4.lasti, 40 + this.y, 30, 0, Math.PI * 2);
+    this.ctx.arc(41 + 80 * lig4.lasti, 40 + this.y, 30, 0, Math.PI * 2);
     if (lig4.player == 1) {
       this.ctx.fillStyle = "red";
     }
@@ -45,7 +45,7 @@ Lig4Canvas.prototype.drawFallingPiece = function () {
   }
   else {
     this.ctx.beginPath();
-    this.ctx.arc(48 + 80 * lig4.lasti, 40 + this.y, 30, 0, Math.PI * 2);
+    this.ctx.arc(41 + 80 * lig4.lasti, 40 + this.y, 30, 0, Math.PI * 2);
     if (lig4.player == 1) {
       this.ctx.fillStyle = "red";
     }
@@ -63,13 +63,13 @@ Lig4Canvas.prototype.drawCurrentPieces = function (matrix) {
     for (var i = 0; i <= 6; i++) {
       if (matrix[j][i] == 1) {
         this.ctx.beginPath();
-        this.ctx.arc(48 + 80 * i, 40 + 80 * j, 30, 0, Math.PI * 2);
+        this.ctx.arc(41 + 80 * i, 40 + 80 * j, 30, 0, Math.PI * 2);
         this.ctx.fillStyle = "red";
         this.ctx.fill();
       }
       if (matrix[j][i] == 2) {
         this.ctx.beginPath();
-        this.ctx.arc(48 + 80 * i, 40 + 80 * j, 30, 0, Math.PI * 2);
+        this.ctx.arc(41 + 80 * i, 40 + 80 * j, 30, 0, Math.PI * 2);
         this.ctx.fillStyle = "blue";
         this.ctx.fill();
       }
