@@ -200,8 +200,8 @@ function beginGame(selectedButton) {
     
     if (lig4.checkIfEmpty(selectedButton)) {
       lig4.addFallingPiece(selectedButton);
-
-      drawAnimation = true; 
+      
+      drawAnimation = true;
       var updateCanvas = setInterval(function () {
         if (endGame == false && drawAnimation == true) {
           lig4Canvas.clearCanvas();
@@ -213,8 +213,8 @@ function beginGame(selectedButton) {
           clearInterval(updateCanvas);
         }
       }, 15);
-      
       blockKeyboard = true;
+      
       var timeoutId = setTimeout(function () {
         
         lig4.addPiece(selectedButton);
@@ -232,7 +232,7 @@ function beginGame(selectedButton) {
         blockKeyboard = false;
         
       
-      }, 800);
+      }, 700);
     }
 
   }
@@ -274,7 +274,7 @@ document.onkeydown = function (e) {
             lig4Canvas.writeTurn(lig4.player);
           }
           blockKeyboard = false;
-        }, 800);
+        }, 700);
       }
     }
   }
