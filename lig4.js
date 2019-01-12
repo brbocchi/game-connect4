@@ -196,12 +196,12 @@ $('#start-game-button').on('click', function () {
 
 function beginGame(selectedButton) {
   if (endGame == false && blockKeyboard == false) {
-    drawAnimation = true;
-    blockKeyboard = true;
+    
+    
     if (lig4.checkIfEmpty(selectedButton)) {
       lig4.addFallingPiece(selectedButton);
 
-      
+      drawAnimation = true; 
       var updateCanvas = setInterval(function () {
         if (endGame == false && drawAnimation == true) {
           lig4Canvas.clearCanvas();
@@ -214,7 +214,7 @@ function beginGame(selectedButton) {
         }
       }, 15);
       
-      
+      blockKeyboard = true;
       var timeoutId = setTimeout(function () {
         
         lig4.addPiece(selectedButton);
