@@ -6,8 +6,6 @@ body{
   margin: 0;
 }
 
-
-
 #start-game-button {
   border: 0;
   box-shadow: 0;
@@ -23,27 +21,16 @@ body{
   justify-content: center;
 }
 
-
-
 ul{
   list-style: none;
-  /* margin-block-start: 0em;
-  margin-block-end: 0em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px; */
   padding: 0px;
   margin: 0px;
 }
 
-
-
-
 .control {
   display: flex;
   justify-content: center;
-
 }
-
 
 .btn {
   box-shadow: 0;

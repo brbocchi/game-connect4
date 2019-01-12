@@ -7,11 +7,10 @@ function Lig4Canvas() {
 Lig4Canvas.prototype.clearCanvas = function () {
   this.ctx.clearRect(0, 0, 1200, 700);
 };
-
 Lig4Canvas.prototype.drawLines = function () {
   // vertical
   for (var i = 0; i < 8; i++) {
-    
+
     var a = 1 + 80 * i;
     this.ctx.beginPath();
     this.ctx.moveTo(a, 0);
@@ -28,7 +27,6 @@ Lig4Canvas.prototype.drawLines = function () {
     this.ctx.stroke();
   }
 };
-
 Lig4Canvas.prototype.drawFallingPiece = function () {
   if (this.y < 80 * lig4.finalPosition) {
     this.y += 10;
@@ -76,7 +74,6 @@ Lig4Canvas.prototype.drawCurrentPieces = function (matrix) {
     }
   }
 }
-
 Lig4Canvas.prototype.writeTurn = function (player) {
   if (player == 2 || lig4.rounds == 0) {
     this.ctx.font = '36px sans-serif';

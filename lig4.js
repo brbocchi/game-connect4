@@ -17,8 +17,6 @@ function Lig4() {
   this.finalPosition = 0;
 };
 
-
-
 Lig4.prototype.checkIfNumber = function (keyCode) {
   if (keyCode > 55 || keyCode < 49) {
     return false;
@@ -42,7 +40,6 @@ Lig4.prototype.addFallingPiece = function (key) {
     }
   }
 }
-
 Lig4.prototype.addPiece = function (key) {
   for (var j = this.game.length - 1; j >= 0; j--) {
     if (this.game[j][key - 1] == 0) {
@@ -73,7 +70,7 @@ Lig4.prototype.checkTie = function () {
 };
 
 Lig4.prototype.checkWinner = function (key) {
-  
+
   //column
   if (this.lastj <= this.game.length - 4) {
     if (this.game[this.lastj][key - 1] == this.game[this.lastj + 1][key - 1] && this.game[this.lastj][key - 1] == this.game[this.lastj + 2][key - 1] && this.game[this.lastj][key - 1] == this.game[this.lastj + 3][key - 1]) {
@@ -137,7 +134,6 @@ Lig4.prototype.checkWinner = function (key) {
 var endGame;
 var drawAnimation;
 var blockKeyboard;
-
 $('#start-game-button').on('click', function () {
   var buttons = '<li><button class="btn btn-one"><i class="fas fa-caret-down fa-6x"></i></button></li>\
   <li><button class="btn btn-two"><i class="fas fa-caret-down fa-6x"></i></button></li>\
@@ -148,7 +144,7 @@ $('#start-game-button').on('click', function () {
   <li><button class="btn btn-seven"><i class="fas fa-caret-down fa-6x"></i></button></li>'
   $('.control').html(buttons);
   var selectedButton;
-  
+
   $('.btn-one').on('click', function () {
     selectedButton = 1;
     beginGame(selectedButton);
@@ -158,27 +154,27 @@ $('#start-game-button').on('click', function () {
     selectedButton = 2;
     beginGame(selectedButton);
   });
-  
+
   $('.btn-three').click(function () {
     selectedButton = 3;
     beginGame(selectedButton);
   });
-  
+
   $('.btn-four').click(function () {
     selectedButton = 4;
     beginGame(selectedButton);
   });
-  
+
   $('.btn-five').click(function () {
     selectedButton = 5;
     beginGame(selectedButton);
   });
-  
+
   $('.btn-six').click(function () {
     selectedButton = 6;
     beginGame(selectedButton);
   });
-  
+
   $('.btn-seven').click(function () {
     selectedButton = 7;
     beginGame(selectedButton);
@@ -193,14 +189,12 @@ $('#start-game-button').on('click', function () {
   blockKeyboard = false;
 });
 
-
 function beginGame(selectedButton) {
   if (endGame == false && blockKeyboard == false) {
-    
-    
+
     if (lig4.checkIfEmpty(selectedButton)) {
       lig4.addFallingPiece(selectedButton);
-      
+
       drawAnimation = true;
       var updateCanvas = setInterval(function () {
         if (endGame == false && drawAnimation == true) {
@@ -214,9 +208,8 @@ function beginGame(selectedButton) {
         }
       }, 15);
       blockKeyboard = true;
-      
+
       var timeoutId = setTimeout(function () {
-        
         lig4.addPiece(selectedButton);
         if (lig4.checkWinner(selectedButton)) {
           lig4Canvas.winner(lig4.player);
@@ -230,15 +223,11 @@ function beginGame(selectedButton) {
           lig4Canvas.writeTurn(lig4.player);
         }
         blockKeyboard = false;
-        
-      
+
       }, 700);
     }
-
   }
 }
-
-
 document.onkeydown = function (e) {
   if (endGame == false && blockKeyboard == false) {
     if (lig4.checkIfNumber(e.keyCode)) {
@@ -259,7 +248,7 @@ document.onkeydown = function (e) {
         }, 15);
 
         blockKeyboard = true;
-        
+
         var timeoutId = setTimeout(function () {
           lig4.addPiece(e.key);
           if (lig4.checkWinner(e.key)) {
@@ -270,7 +259,7 @@ document.onkeydown = function (e) {
             lig4Canvas.tie();
             endGame = true;
           }
-          if(endGame == false){
+          if (endGame == false) {
             lig4Canvas.writeTurn(lig4.player);
           }
           blockKeyboard = false;
